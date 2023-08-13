@@ -11,6 +11,14 @@ Demodulates a TCP IQ stream from rtl_tcp to a WAV file of the USB signal
 5. Make sure __rtl_tcp__ is running on a reachable IP address
 6. Execute the main code `python3 ./iqstream_to_usb.py`
 
+## Description
+
+- The script opens a socket to the rtl_tcp server
+- Tuning parameters are sent to the server (gain, tuning freq and samplerate)
+- TCP packets are decoded and converted to `numpy.ndarray`
+- `numpy.ndarray` is filtered to `3000 Hz` (maximum USB signal width for ham radio bands)
+- filtered signal is processed to extract the USB signal and written to WAV file
+
 ## Known bugs 
 
 Help is appreciated here!
